@@ -51,7 +51,7 @@ public class Lab6P1_HanneMendoza {
                             break;
                         case 2:
                             System.out.print("Diferenica (SET1,SET2): ");
-                            //imprimir(diferencia);
+                            imprimir(diferencia(SET1, SET2));
                             break;
                     }
                     
@@ -108,6 +108,7 @@ public class Lab6P1_HanneMendoza {
     public static char [] intersection(char [] array , char [] array2){      
          int acum = 0;    
          char temporal [] = new char [array.length];
+         
          char arreglo_interseccion [] = new char [array.length];
           if (array.length > array2.length) {
                arreglo_interseccion = new char[array.length];
@@ -115,25 +116,54 @@ public class Lab6P1_HanneMendoza {
                arreglo_interseccion = new char[array2.length];
           }
         
-        for(int k = 0 ; k < temporal.length ; k++){
-            temporal [k] = '/';
+        for(int i = 0 ; i < temporal.length ; i++){
+            temporal [i] = '/';
         }
+        
         if (array.length > array2.length) {
-                for(int i = 0; i < array2.length-1 ; i++ ){
+                for(int i = 0; i < array2.length ; i++ ){
                     for(int j = 0; j < array.length; j++){
                         if(array2[i] == array[j]){
-                          acum++;  
+                            acum++;  
                         }
-                    }   
+                    }
+                if(acum > 0){
+                 arreglo_interseccion [i] = array[i];  
+        }    
                 }     
+            
+             
+        }else{
+             for(int i = 0; i < array.length ; i++ ){
+                    for(int j = 0; j < array2.length; j++){
+                        if(array[i] == array2[j]){
+                            acum++;  
+                        }
+                    }
+                    if(acum > 0){
+                     arreglo_interseccion [i] = array[i];    
+                    }
        
+            }
         
-        if(acum > 0){
-          //arreglo_interseccion [i] = array[j];  
         }
-        
+         return arreglo_interseccion; 
     }// fin interseccion
-    return arreglo_interseccion;    
+    
+    public static char [] diferencia(char [] lista1, char [] lista2){          
+        char temp [] = new char [lista1.length];
+        char temp2 [] = new char [lista2.length];
+        
+        for(int i = 0 ; i < temp.length ; i++){
+            for(int j = 0 ; j < temp2.length ; j++){           
+
+                if(lista1[i] == lista2[j] && temp[i] != lista1[j]){
+                   temp[i] = lista1[j];
+                }
+
+            }
+        }
+        return temp;
     }
     
     
