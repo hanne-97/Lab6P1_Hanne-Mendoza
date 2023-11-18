@@ -106,7 +106,8 @@ public class Lab6P1_HanneMendoza {
     }
     
     public static char [] intersection(char [] array , char [] array2){      
-         int acum = 0;
+         int acum = 0;    
+         char temporal [] = new char [array.length];
          char arreglo_interseccion [] = new char [array.length];
           if (array.length > array2.length) {
                arreglo_interseccion = new char[array.length];
@@ -114,36 +115,33 @@ public class Lab6P1_HanneMendoza {
                arreglo_interseccion = new char[array2.length];
           }
         
-        
+        for(int k = 0 ; k < temporal.length ; k++){
+            temporal [k] = '/';
+        }
         if (array.length > array2.length) {
                 for(int i = 0; i < array2.length-1 ; i++ ){
                     for(int j = 0; j < array.length; j++){
                         if(array2[i] == array[j]){
-                            
+                          acum++;  
                         }
                     }   
-                }        
+                }     
        
-        }/*else{
-            for(int i = 0; i < array.length-1 ; i++ ){
-                for(int j = 0; j < array2.length; j++){
-                    if(array[i] == array2[j]){
-                        acum += array[i];
-                        arreglo_interseccion[i] = acum;
-                    }
-                }        
-            
-            }
-         
-        }*/
-        return arreglo_interseccion;
+        
+        if(acum > 0){
+          //arreglo_interseccion [i] = array[j];  
+        }
+        
+    }// fin interseccion
+    return arreglo_interseccion;    
     }
+    
     
     public static void imprimir(char[] arreglo) {
         for (int j = 0; j < arreglo.length; j++) {
             System.out.print( "[ " + arreglo[j] + " ]");           
         }     
-    }
+    }//fin metodo imprimir
     
     //case 2
     
